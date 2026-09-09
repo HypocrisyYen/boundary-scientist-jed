@@ -51,10 +51,10 @@ every consumer at once.
    it to run genuine multi-step research the base model cannot structure.
 3. **Red → blue transfer (with its disconfirming control)** — the red scientist's golden traces are a
    *labeled catalogue of dangerous requests, discovered by search*. Distilled into defender SFT, they
-   teach the same 8B to refuse **17/38 held-out guardrail-allowed attacks** it never trained on
-   (e.g. `id_rsa`, `rm -rf`, `dd`, `nc` reverse shell — 5/5) vs the base model's **1/38**, benign
+   teach the same 8B to refuse **16/40 held-out guardrail-allowed attacks** it never trained on
+   (e.g. `id_rsa`, `rm -rf`, `dd`, `nc` reverse shell — 5/5) vs the base model's **2/40**, benign
    utility intact (35/40). The transfer is real — but a size-matched generic-safety control refuses
-   *more* (30/38) while over-refusing benign (25/40), so red's edge is **utility preservation, not
+   *more* (32/40) while over-refusing benign (22/40), so red's edge is **utility preservation, not
    stronger refusal**. Honest write-up in WRITEUP §7. Evidence:
    `score_jed/evidence/red_to_blue_heldout{,_generic}.{json,log}`.
 
