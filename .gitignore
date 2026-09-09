@@ -1,0 +1,37 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---- Logs / scratch ----
+*.log
+*.log.*
+*.err
+*.tmp
+
+# ---- Trained weights & checkpoints (kept on disk, never committed) ----
+rl_infra/ckpt*/
+rl_infra/local_sft/
+rl_infra/sft_backup/
+rl_infra/colab_backup/
+rl_infra/colab_pull_tmp/
+sft_model/
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.gguf
+*.tar.gz
+
+# ---- Large generated data (regenerable; keep small curated jsonl only) ----
+rl_infra/sft_data.jsonl
+
+# ---- Secrets (never commit) ----
+llm_config.json
+score_jed/llm_config.json
+*.env
+.env
+*.key
+*credential*
+.secrets/

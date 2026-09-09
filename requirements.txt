@@ -1,0 +1,30 @@
+# Boundary Scientist — Python dependencies
+# Python 3.11+.  Install:  pip install -r requirements.txt
+
+# --- Strategist LLM (the scientist "brain": OpenAI / OpenRouter / Moonshot-compatible) ---
+openai>=1.40
+
+# --- Trace-SFT / RL training (QLoRA on an 8B, GRPO, self-play) ---
+torch>=2.3
+transformers>=4.44
+peft>=0.12
+datasets>=2.20
+accelerate>=0.33
+bitsandbytes>=0.43        # 4-bit QLoRA
+trl>=0.9                  # GRPO / RL
+unsloth                   # fast 4-bit QLoRA base (unsloth/Qwen3-8B-bnb-4bit)
+
+# --- Local GGUF targets (evaluator-faithful gpt-oss / gemma replay) ---
+llama-cpp-python==0.3.34  # pinned: 0.3.35 crashes gpt-oss-20B via an SWA-cache bug
+
+# --- Misc ---
+requests>=2.31
+numpy>=1.26
+
+# --- Optional: high-throughput generation (only if you use rl_infra/vllm_gen.py) ---
+# vllm>=0.5
+
+# --- Not on PyPI (install separately if you use them) ---
+# aicomp_sdk        : the Kaggle competition SDK wheel (aicomp_sdk-3.1.x)
+# agentdojo         : pip install agentdojo   (engine/benchmarks/agentdojo_sandbox.py)
+# CybORG            : github.com/cage-challenge/CybORG (engine/benchmarks/cyborg_sandbox.py)
