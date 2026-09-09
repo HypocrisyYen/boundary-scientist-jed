@@ -49,12 +49,14 @@ every consumer at once.
 2. **Trace-SFT** — a *golden trace* is the scientist's full `explore → think → act → feedback` decision
    log for one predicate-firing path. QLoRA-fine-tuning an 8B on these (completion-only loss) teaches
    it to run genuine multi-step research the base model cannot structure.
-3. **Red → blue transfer** — the red scientist's golden traces are a *labeled catalogue of dangerous
-   requests, discovered by search*. Distilled into defender SFT, they teach the same 8B to refuse
-   **4/8 held-out guardrail-allowed attacks** it never trained on (e.g. `id_rsa` upload, `rm -rf` — 5/5)
-   vs the base model's **1/8**, benign utility intact. The control isolating this from generic
-   safety-SFT is specified and pending (see WRITEUP §7). Evidence:
-   `score_jed/evidence/red_to_blue_full.{json,log}`.
+3. **Red → blue transfer (with its disconfirming control)** — the red scientist's golden traces are a
+   *labeled catalogue of dangerous requests, discovered by search*. Distilled into defender SFT, they
+   teach the same 8B to refuse **17/38 held-out guardrail-allowed attacks** it never trained on
+   (e.g. `id_rsa`, `rm -rf`, `dd`, `nc` reverse shell — 5/5) vs the base model's **1/38**, benign
+   utility intact (35/40). The transfer is real — but a size-matched generic-safety control refuses
+   *more* (30/38) while over-refusing benign (25/40), so red's edge is **utility preservation, not
+   stronger refusal**. Honest write-up in WRITEUP §7. Evidence:
+   `score_jed/evidence/red_to_blue_heldout{,_generic}.{json,log}`.
 
 ## Setup
 
