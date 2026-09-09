@@ -9,8 +9,6 @@ Built for the Kaggle **AI Agent Security — Multi-Step Tool Attacks (JED Red-Te
 (OpenAI · Google · IEEE). Final: **11.82 private, 269 / 4,252.**
 
 - **Working note:** [`WRITEUP_FINAL.md`](WRITEUP_FINAL.md)
-- **Live write-up (rendered):** https://claude.ai/code/artifact/07eda694-c3b2-4b6f-89cb-550e2aeed64f
-
 ---
 
 ## What's here
