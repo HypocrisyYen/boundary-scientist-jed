@@ -9,6 +9,7 @@ Built for the Kaggle **AI Agent Security — Multi-Step Tool Attacks (JED Red-Te
 (OpenAI · Google · IEEE). Final: **11.82 private, 269 / 4,252.**
 
 - **Working note:** [`WRITEUP_FINAL.md`](WRITEUP_FINAL.md)
+
 ---
 
 ## What's here
@@ -49,9 +50,11 @@ every consumer at once.
    log for one predicate-firing path. QLoRA-fine-tuning an 8B on these (completion-only loss) teaches
    it to run genuine multi-step research the base model cannot structure.
 3. **Red → blue transfer** — the red scientist's golden traces are a *labeled catalogue of dangerous
-   requests, discovered by search*. Distilled into defender SFT, they move the same 8B from **4% → 59%**
-   refusing dangerous ops at the reply stage (and **10% → 45%** on attacks the guardrail itself allows),
-   with benign compliance unchanged. Evidence: `score_jed/evidence/red_to_blue_full.{json,log}`.
+   requests, discovered by search*. Distilled into defender SFT, they teach the same 8B to refuse
+   **4/8 held-out guardrail-allowed attacks** it never trained on (e.g. `id_rsa` upload, `rm -rf` — 5/5)
+   vs the base model's **1/8**, benign utility intact. The control isolating this from generic
+   safety-SFT is specified and pending (see WRITEUP §7). Evidence:
+   `score_jed/evidence/red_to_blue_full.{json,log}`.
 
 ## Setup
 
